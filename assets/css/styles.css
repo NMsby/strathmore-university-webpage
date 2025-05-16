@@ -216,3 +216,104 @@ section {
     font-size: 1.1rem;
     line-height: 1.7;
 }
+
+/* Schools and Programs Section */
+.schools-section {
+    background-color: var(--light-color);
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--white-color);
+}
+
+.programs-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.programs-table th,
+.programs-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.programs-table th {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.programs-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.programs-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.programs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.programs-table tr:nth-child(even) {
+    background-color: rgba(58, 93, 174, 0.05);
+}
+
+.programs-table tr:hover {
+    background-color: rgba(58, 93, 174, 0.1);
+}
+
+.program-list {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.program-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.program-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 15px;
+    margin-left: -15px;
+}
+
+.programs-table td p {
+    margin-bottom: 5px;
+}
+
+.programs-table td p:last-child {
+    margin-bottom: 0;
+}
