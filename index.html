@@ -9,6 +9,8 @@
     <title>Strathmore University - Excellence in Education</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Add preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Add font display swap for better performance -->
@@ -52,6 +54,13 @@
 <main id="main-content">
     <section id="mission-vision" class="mission-vision">
         <div class="container">
+            <h2 class="section-title">Our Purpose</h2>
+            <div class="section-animation">
+                <div class="orbit-animation">
+                    <div class="planet"></div>
+                    <div class="satellite"></div>
+                </div>
+            </div>
             <div class="card-container">
                 <div class="card vision-card">
                     <h2>Our Vision</h2>
@@ -69,6 +78,22 @@
     <section id="schools-programs" class="schools-section">
         <div class="container">
             <h2 class="section-title">Our Schools and Programs</h2>
+
+            <div class="schools-icons">
+                <div class="school-icon">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Business</span>
+                </div>
+                <div class="school-icon">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Computing</span>
+                </div>
+                <div class="school-icon">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>Law</span>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="programs-table">
                     <caption class="sr-only">Academic Schools and Their Programs</caption>
@@ -136,6 +161,22 @@
     <section id="achievements" class="achievements-section">
         <div class="container">
             <h2 class="section-title">University Achievements</h2>
+
+            <div class="achievement-counter-container">
+                <div class="achievement-counter">
+                    <div class="counter" data-target="8189">0</div>
+                    <span>Students</span>
+                </div>
+                <div class="achievement-counter">
+                    <div class="counter" data-target="60">0</div>
+                    <span>Years of Excellence</span>
+                </div>
+                <div class="achievement-counter">
+                    <div class="counter" data-target="15">0</div>
+                    <span>Academic Programs</span>
+                </div>
+            </div>
+
             <div class="achievements-container">
                 <div class="card achievement-card">
                     <div class="achievement-icon">
@@ -143,7 +184,7 @@
                     </div>
                     <div class="achievement-content">
                         <h3>Pioneer in Inclusive Education</h3>
-                        <p>The First multi-racial, multi-religious college in pre-independence Kenya, established in 1961, set the foundation for inclusive education in the region.</p>
+                        <p>First multi-racial, multi-religious college in pre-independence Kenya, established in 1961, setting the foundation for inclusive education in the region.</p>
                     </div>
                 </div>
 
@@ -163,7 +204,7 @@
                     </div>
                     <div class="achievement-content">
                         <h3>Global Student Community</h3>
-                        <p>A Vibrant student body of 8,189 with 11% international students, creating a diverse and multicultural learning environment.</p>
+                        <p>Vibrant student body of 8,189 with 11% international students, creating a diverse and multicultural learning environment.</p>
                     </div>
                 </div>
 
@@ -360,11 +401,21 @@
                     <div class="social-media">
                         <h3>Connect With Us</h3>
                         <div class="social-icons">
-                            <a href="https://www.facebook.com/StrathmoreUniversity" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">FB</a>
-                            <a href="https://twitter.com/StrathU" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">TW</a>
-                            <a href="https://www.instagram.com/strathmore.university/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">IG</a>
-                            <a href="https://www.linkedin.com/school/strathmore-university/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">LI</a>
-                            <a href="https://www.youtube.com/user/strathmoreuniversity" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">YT</a>
+                            <a href="https://www.facebook.com/StrathmoreUniversity" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/StrathU" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/strathmore.university/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/strathmore-university/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.youtube.com/user/strathmoreuniversity" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -517,6 +568,42 @@
     // Set initial icon based on theme
     if (body.classList.contains('dark-theme')) {
         themeToggle.querySelector('.theme-toggle-icon').textContent = '☀️';
+    }
+
+    // Animated counters
+    const counters = document.querySelectorAll('.counter');
+    const counterSpeed = 200; // Lower is faster
+
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = +counter.dataset.target;
+            const count = +counter.innerText;
+            const increment = target / counterSpeed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(() => animateCounters(), 1);
+            } else {
+                counter.innerText = target;
+            }
+        });
+    }
+
+    // Start animation when visible
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    const counterContainer = document.querySelector('.achievement-counter-container');
+    if (counterContainer) {
+        counterObserver.observe(counterContainer);
     }
 </script>
 </body>
