@@ -163,11 +163,11 @@ section {
     background-color: var(--white-color);
 }
 
-.card-container {
+..card-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 30px;
+    margin-bottom: 30px;
 }
 
 .vision-card, .mission-card {
@@ -1037,4 +1037,353 @@ body::before {
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233a5dae' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
     z-index: -1;
+}
+
+/* Responsive Design with Media Queries */
+
+/* Base styles are mobile-first (small screens) */
+
+/* Medium screens (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 30px;
+    }
+
+    /* Header adjustments */
+    header .container {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .logo-container {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    /* Mission and Vision section */
+    .card-container {
+        flex-direction: row;
+    }
+
+    .vision-card, .mission-card {
+        flex: 1;
+    }
+
+    /* Schools table section */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    /* Achievements section */
+    .achievements-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Projects section */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Contact section */
+    .contact-item {
+        flex-direction: row;
+    }
+
+    .contact-icon {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    /* Footer adjustments */
+    .footer-content {
+        flex-direction: row;
+    }
+
+    .footer-logo {
+        text-align: left;
+    }
+
+    .footer-links {
+        justify-content: flex-end;
+    }
+}
+
+/* Large screens (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 40px;
+    }
+
+    /* Header adjustments */
+    .logo {
+        max-width: 220px;
+    }
+
+    header h1 {
+        font-size: 2.8rem;
+    }
+
+    /* Hero section */
+    .hero-container {
+        height: 650px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.7rem;
+    }
+
+    /* Achievements section */
+    .achievements-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Projects section */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Footer adjustments */
+    .footer-links {
+        gap: 60px;
+    }
+}
+
+/* Extra large screens (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    /* Container adjustments */
+    .container {
+        max-width: 1200px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    /* Schools table section */
+    .programs-table th,
+    .programs-table td {
+        padding: 20px;
+    }
+
+    /* Achievements section */
+    .achievements-container {
+        gap: 30px;
+    }
+
+    /* Projects section */
+    .projects-grid {
+        gap: 30px;
+    }
+}
+
+/* Small screens (phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    /* Header adjustments */
+    .logo {
+        max-width: 180px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    /* Hero section */
+    .hero-container {
+        height: 400px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Section title adjustments */
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    /* Table adjustments */
+    .programs-table th,
+    .programs-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .program-list li {
+        font-size: 0.9rem;
+    }
+
+    /* Contact adjustments */
+    .contact-card {
+        padding: 20px;
+    }
+
+    .contact-text h3 {
+        font-size: 1rem;
+    }
+
+    .contact-text p {
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    /* Back to top button adjustment */
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Print styles for better printing */
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        background: white;
+        color: black;
+    }
+
+    a {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    .hero-section,
+    .footer,
+    .back-to-top,
+    .social-media,
+    .hero-buttons {
+        display: none;
+    }
+
+    .card,
+    .contact-card,
+    .table-responsive,
+    .achievement-card,
+    .project-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Force page breaks */
+    section {
+        page-break-inside: avoid;
+    }
+
+    /* Add URL after links for reference */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+
+    /* Hide URL for internal links */
+    a[href^="#"]:after {
+        content: "";
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000FF;
+        --secondary-color: #FF0000;
+    }
+
+    body {
+        color: #000;
+        background: #FFF;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .card,
+    .contact-card,
+    .table-responsive,
+    .achievement-card,
+    .project-card {
+        border: 2px solid #000;
+    }
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --white-color: #121212;
+        --light-color: #1E1E1E;
+        --dark-color: #E0E0E0;
+        --gray-color: #B0B0B0;
+        --light-gray: #2A2A2A;
+    }
+
+    body {
+        color: #E0E0E0;
+        background-color: #121212;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+    }
+
+    .card,
+    .achievement-card,
+    .project-card,
+    .contact-card,
+    .table-responsive {
+        background-color: #1A1A1A;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .programs-table th {
+        background-color: var(--primary-color);
+    }
+
+    .programs-table tr:nth-child(even) {
+        background-color: rgba(58, 93, 174, 0.1);
+    }
+
+    img {
+        filter: brightness(0.9);
+    }
+
+    .footer {
+        background-color: #0A0A0A;
+    }
+
+    .footer-logo-img {
+        filter: brightness(0) invert(1);
+    }
 }
