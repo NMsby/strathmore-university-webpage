@@ -305,52 +305,54 @@
                     <h2>Contact Information</h2>
 
                     <div class="contact-card">
-                        <div class="contact-item">
-                            <div class="contact-icon" aria-hidden="true">📍</div>
-                            <div class="contact-text">
-                                <h3>Address</h3>
-                                <address>
-                                    <p>Strathmore University</p>
-                                    <p>Ole Sangale Road, Madaraka Estate</p>
-                                    <p>P.O. Box 59857, 00200</p>
-                                    <p>Nairobi, Kenya</p>
-                                </address>
+                        <div class="contact-items-container">
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">📍</div>
+                                <div class="contact-text">
+                                    <h3>Address</h3>
+                                    <address>
+                                        <p>Strathmore University</p>
+                                        <p>Ole Sangale Road, Madaraka Estate</p>
+                                        <p>P.O. Box 59857, 00200</p>
+                                        <p>Nairobi, Kenya</p>
+                                    </address>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon" aria-hidden="true">📞</div>
-                            <div class="contact-text">
-                                <h3>Phone</h3>
-                                <p><a href="tel:+254703034000">+254 703 034 000</a></p>
-                                <p><a href="tel:+254703034200">+254 703 034 200</a></p>
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">📞</div>
+                                <div class="contact-text">
+                                    <h3>Phone</h3>
+                                    <p><a href="tel:+254703034000">+254 703 034 000</a></p>
+                                    <p><a href="tel:+254703034200">+254 703 034 200</a></p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon" aria-hidden="true">✉️</div>
-                            <div class="contact-text">
-                                <h3>Email</h3>
-                                <p><a href="mailto:info@strathmore.edu">info@strathmore.edu</a></p>
-                                <p><a href="mailto:admissions@strathmore.edu">admissions@strathmore.edu</a></p>
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">✉️</div>
+                                <div class="contact-text">
+                                    <h3>Email</h3>
+                                    <p><a href="mailto:info@strathmore.edu">info@strathmore.edu</a></p>
+                                    <p><a href="mailto:admissions@strathmore.edu">admissions@strathmore.edu</a></p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon" aria-hidden="true">🌐</div>
-                            <div class="contact-text">
-                                <h3>Website</h3>
-                                <p><a href="https://strathmore.edu" target="_blank" rel="noopener noreferrer">www.strathmore.edu</a></p>
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">🌐</div>
+                                <div class="contact-text">
+                                    <h3>Website</h3>
+                                    <p><a href="https://strathmore.edu" target="_blank" rel="noopener noreferrer">www.strathmore.edu</a></p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon" aria-hidden="true">⏰</div>
-                            <div class="contact-text">
-                                <h3>Operating Hours</h3>
-                                <p>Monday - Friday: 8:00AM–5:00 PM</p>
-                                <p>Saturday: 8:00AM–12:00 PM</p>
-                                <p>Sunday & Public Holidays: Closed</p>
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">⏰</div>
+                                <div class="contact-text">
+                                    <h3>Operating Hours</h3>
+                                    <p>Monday - Friday: 8:00AM–5:00 PM</p>
+                                    <p>Saturday: 8:00AM–12:00 PM</p>
+                                    <p>Sunday & Public Holidays: Closed</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -427,6 +429,11 @@
     </div>
 </footer>
 
+<!-- Theme toggle button -->
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+    <span class="theme-toggle-icon" aria-hidden="true">🌓</span>
+</button>
+
 <button id="back-to-top" class="back-to-top" aria-label="Back to top">
     <span aria-hidden="true">↑</span>
 </button>
@@ -484,6 +491,33 @@
     observeElements.forEach(element => {
         observer.observe(element);
     });
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved user preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', '');
+            themeToggle.querySelector('.theme-toggle-icon').textContent = '🌓';
+        } else {
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark-theme');
+            themeToggle.querySelector('.theme-toggle-icon').textContent = '☀️';
+        }
+    });
+
+    // Set initial icon based on theme
+    if (body.classList.contains('dark-theme')) {
+        themeToggle.querySelector('.theme-toggle-icon').textContent = '☀️';
+    }
 </script>
 </body>
 </html>
