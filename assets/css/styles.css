@@ -163,7 +163,7 @@ section {
     background-color: var(--white-color);
 }
 
-..card-container {
+.card-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
