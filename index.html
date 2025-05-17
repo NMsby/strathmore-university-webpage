@@ -16,6 +16,23 @@
         </div>
     </header>
 
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="assets/images/campus-hero.jpg" alt="Strathmore University Campus">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Welcome to Strathmore University</h1>
+                <p>A leading outcome-driven entrepreneurial research university</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Explore Programs</a>
+                    <a href="#" class="btn btn-secondary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="mission-vision">
         <div class="container">
             <div class="card-container">
@@ -333,7 +350,6 @@
         </div>
     </section>
 
-    <!-- Add this code at the end of your body, after all other sections -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -389,5 +405,29 @@
             </div>
         </div>
     </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <span>↑</span>
+    </button>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
